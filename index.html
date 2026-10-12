@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="masthead">
+        <p class="eyebrow" id="today"></p>
+        <div class="masthead-row">
+          <h1>Tasks</h1>
+          <p class="count" id="count">No tasks yet</p>
+        </div>
+        <div
+          class="progress"
+          id="progress"
+          role="progressbar"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+          aria-valuetext="0 percent complete"
+          aria-label="Tasks completed"
+        >
+          <span class="progress-fill" id="progress-fill"></span>
+        </div>
+      </header>
+
+      <form id="task-form" class="composer" novalidate>
+        <label class="sr-only" for="task-input">New task</label>
+        <input
+          id="task-input"
+          name="task"
+          type="text"
+          maxlength="180"
+          placeholder="Add a task"
+          autocomplete="off"
+          enterkeyhint="done"
+        >
+        <button type="submit" class="add-btn">Add</button>
+        <p id="form-error" class="form-error" role="alert" hidden></p>
+      </form>
+
+      <div class="filters" role="group" aria-label="Filter tasks">
+        <button type="button" class="filter" data-filter="all" aria-pressed="true">
+          All <span class="badge" data-count="all">0</span>
+        </button>
+        <button type="button" class="filter" data-filter="active" aria-pressed="false">
+          Active <span class="badge" data-count="active">0</span>
+        </button>
+        <button type="button" class="filter" data-filter="completed" aria-pressed="false">
+          Completed <span class="badge" data-count="completed">0</span>
+        </button>
+      </div>
+
+      <ul id="task-list" class="task-list" aria-label="Task list"></ul>
+      <p id="empty" class="empty" hidden></p>
+      <p class="footnote">Saved in this browser. Refresh the page and your tasks stay.</p>
+    </main>
+
+    <p id="announcer" class="sr-only" aria-live="polite"></p>
+    <script src="script.js"></script>
+  </body>
+</html>
